@@ -41,7 +41,7 @@ class TodoListTest extends TestCase
         $response = $this->getJson(route('todo-list.show', $this->list->id))
             ->assertOk();
 
-        $this->assertEquals($response['name'], $this->list->name);
+        $this->assertEquals($response->json()['name'], $this->list->name);
 
     }
 
@@ -64,7 +64,7 @@ class TodoListTest extends TestCase
     public function while_storing_todo_list_name_field_is_required()
     {
 
-        $this->postJson(route('to do-list.store', $this->list->id), ['name' => $this->list->id])
+        $this->postJson(route('todo-list.store', $this->list->id), ['name' => $this->list->id])
             ->assertStatus(201);
 
     }
