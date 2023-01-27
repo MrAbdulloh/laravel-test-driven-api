@@ -15,23 +15,10 @@ class TaskController extends Controller
         return response($tasks);
     }
 
-    public function store(Request $request, TodoList $todo_List)
+    public function store(Request $request)
     {
-        $request['todo_list_id'] = $todo_List->id;
-        return  Task::create($request->all());
-
+        $task = Task::query()->create($request->all());
+        return $task;
     }
 
-    public function destroy(Task $task)
-    {
-        $task->delete();
-        return response('', Response::HTTP_NO_CONTENT);
-    }
-
-    public function update(Task $task, Request $request)
-    {
-        $task->update($request->all());
-
-        return response($task);
-    }
 }
