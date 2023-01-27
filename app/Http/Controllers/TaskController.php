@@ -28,5 +28,11 @@ class TaskController extends Controller
 
     }
 
+    public function update(Task $task, Request $request)
+    {
+        $task->update($request->all());
+        return response($task);
+    }
+
 
 }
