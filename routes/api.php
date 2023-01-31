@@ -10,7 +10,7 @@ Route::apiResource('todo-list', TodoListController::class);
 
 Route::apiResource('todo-list.task', TaskController::class)->except('show')->shallow();
 
-
+Route::post('task/completed', []);
 
 
 
