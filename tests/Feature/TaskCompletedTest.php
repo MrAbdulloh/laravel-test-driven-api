@@ -9,21 +9,13 @@ use Tests\TestCase;
 
 class TaskCompletedTest extends TestCase
 {
-<<<<<<< HEAD
-    /** @test*/
-=======
     /** @test */
 
->>>>>>> origin/master
     public function a_task_status_can_be_changed()
     {
         $task = $this->createTask();
 
-<<<<<<< HEAD
-        $this->patchJson(route('task.update', $task->id), ['status' => Task::STARTED]);
-=======
-    $this->patchJson(route('task.update', $task->id), ['status'=>Task::STARTED]);
->>>>>>> origin/master
+        $this->patchJson(route('task.update', $task->id), ['status'=>Task::STARTED]);
 
         $this->assertDatabaseHas('tasks', ['status' => Task::STARTED]);
     }
